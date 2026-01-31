@@ -19,9 +19,35 @@ jobs:
 
       - name: Run Python Dev app
         run: python dev.py
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
       - name: Run Python Test app
-        run: python tesr.py
+        run: python test.py
+
+
+jobs:
+  prod:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
       - name: Run Python Prod app
         run: python prod.py
